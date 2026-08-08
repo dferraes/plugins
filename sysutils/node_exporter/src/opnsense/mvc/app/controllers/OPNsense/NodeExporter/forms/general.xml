@@ -18,6 +18,24 @@
     <help>Set node_exporter's listen port. By default, node_exporter will listen on port 9100.</help>
   </field>
   <field>
+    <id>general.tls_enabled</id>
+    <label>Enable TLS</label>
+    <type>checkbox</type>
+    <help>Serve metrics over HTTPS instead of plain HTTP. Requires a server certificate below. Without this, /metrics is exposed unauthenticated and in the clear.</help>
+  </field>
+  <field>
+    <id>general.tls_certificate</id>
+    <label>Server Certificate</label>
+    <type>dropdown</type>
+    <help>The certificate node_exporter presents to scrapers.</help>
+  </field>
+  <field>
+    <id>general.tls_client_ca</id>
+    <label>Client Certificate Authority</label>
+    <type>dropdown</type>
+    <help>If set, scrapers must present a client certificate signed by this CA (mutual TLS). Leave empty to serve TLS without client authentication.</help>
+  </field>
+  <field>
     <id>general.cpu</id>
     <label>CPU Statistics</label>
     <type>checkbox</type>

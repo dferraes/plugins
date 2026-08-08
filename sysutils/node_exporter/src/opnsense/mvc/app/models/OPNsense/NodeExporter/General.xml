@@ -18,6 +18,20 @@
             <Required>Y</Required>
             <ValidationMessage>Please provide a valid port number between 1 and 65535. Port 9100 is the default.</ValidationMessage>
         </listenport>
+        <tls_enabled type="BooleanField">
+            <Default>0</Default>
+            <Required>N</Required>
+        </tls_enabled>
+        <tls_certificate type="CertificateField">
+            <Type>cert</Type>
+            <Required>N</Required>
+            <ValidationMessage>Please select a valid server certificate.</ValidationMessage>
+        </tls_certificate>
+        <tls_client_ca type="CertificateField">
+            <Type>ca</Type>
+            <Required>N</Required>
+            <ValidationMessage>Please select a valid certificate authority.</ValidationMessage>
+        </tls_client_ca>
         <cpu type="BooleanField"/>
         <exec type="BooleanField"/>
         <filesystem type="BooleanField"/>

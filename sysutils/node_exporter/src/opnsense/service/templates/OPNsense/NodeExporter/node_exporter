@@ -46,13 +46,17 @@
     {%- set zfs = no_collector + "zfs " -%}
 {%- endif -%}
 
+{%- if OPNsense.NodeExporter.tls_enabled == '1' and OPNsense.NodeExporter.tls_certificate|default('') != '' -%}
+    {%- set webconfig = "--web.config.file=/usr/local/etc/node_exporter/web-config.yml " -%}
+{%- endif -%}
+
 {%- if ':' in OPNsense.NodeExporter.listenaddress -%}
   {%- set listenaddress = '[' + OPNsense.NodeExporter.listenaddress + ']' -%}
 {%- else -%}
   {%- set listenaddress = OPNsense.NodeExporter.listenaddress -%}
 {%- endif -%}
 
-node_exporter_args="{{ cpu }}{{ exec }}{{ filesystem }}{{ loadavg }}{{ meminfo }}{{ netdev }}{{ ntp }}{{ time }}{{ devstat }}{{ zfs }}"
+node_exporter_args="{{ cpu }}{{ exec }}{{ filesystem }}{{ loadavg }}{{ meminfo }}{{ netdev }}{{ ntp }}{{ time }}{{ devstat }}{{ zfs }}{{ webconfig }}"
 node_exporter_listen_address="{{ listenaddress }}:{{ OPNsense.NodeExporter.listenport }}"
 node_exporter_enable="YES"
 

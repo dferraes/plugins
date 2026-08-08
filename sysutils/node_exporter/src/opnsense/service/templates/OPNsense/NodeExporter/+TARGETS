@@ -1,1 +1,2 @@
 node_exporter:/etc/rc.conf.d/node_exporter
+web-config.yml:/usr/local/etc/node_exporter/web-config.yml
