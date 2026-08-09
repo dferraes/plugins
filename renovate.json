@@ -1,0 +1,25 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":semanticCommitTypeAll(chore)"
+  ],
+  "description": [
+    "Renovate mantiene al día las dependencias declaradas de este repo.",
+    "Sin automerge a propósito: cada bump se revisa antes de mergear.",
+    "OJO: mergear un PR de Renovate actualiza el repo, NO lo desplegado."
+  ],
+  "baseBranchPatterns": ["main"],
+  "timezone": "America/Mexico_City",
+  "schedule": ["before 6am on monday"],
+  "labels": ["dependencies"],
+  "dependencyDashboard": true,
+  "prConcurrentLimit": 5,
+  "packageRules": [
+    {
+      "description": "Agrupar bumps menores y de parche en un solo PR.",
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "minor and patch"
+    }
+  ]
+}
