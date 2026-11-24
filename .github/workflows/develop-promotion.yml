@@ -2,7 +2,7 @@ name: Develop promotion
 
 on:
   pull_request:
-    branches: [master]
+    branches: [main, master]
     types: [opened, synchronize, reopened, edited, ready_for_review]
 
 permissions: {}
